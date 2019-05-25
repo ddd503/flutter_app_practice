@@ -2,84 +2,41 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
+const _padding = EdgeInsets.all(16.0);
+
+// 起動時の画面(homeの値は必須)
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Flutter やってみた', text: 'テストテキスト')
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Hello Warld'),
+          backgroundColor: Colors.green,),
+        body: HelloWarldRactangle(),)
     );
   }
 }
 
-// ignore: unused_element
-class _TestView extends State<MyHomePage> {
+class HelloWarldRactangle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-    return Center(child: Container(
-      width: width,
-      height: height,
-      color: Colors.blue,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children:
-        <Widget>[Text(widget.text)],
-      ),
-    ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title, this.text}) : super(key: key);
-
-  final String title;
-  final String text;
-
-  @override
-  _TestView createState() => _TestView();
-//  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              '押したよ:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+    return Center(
+      child: Container(
+        width: 300,
+        height: 400,
+        color: Colors.green,
+        alignment: Alignment.center,
+        child: Text(
+          'Hello!',
+          style: Theme.of(context).textTheme.display2,
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
