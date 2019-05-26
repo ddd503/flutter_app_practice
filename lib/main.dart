@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_practice/category.dart';
+import 'package:flutter_app_practice/CategoryRoute.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           title: Text('Hello Warld'),
           backgroundColor: Colors.green,),
         backgroundColor: Colors.yellow[100],
-        body: Category(name: _categoryName, color: _categoryColor, iconLocation: _categoryIcon),
+        body: CategoryRoute(),
       )
     );
   }

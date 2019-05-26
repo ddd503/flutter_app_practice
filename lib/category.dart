@@ -31,8 +31,6 @@ class Category extends StatelessWidget {
           borderRadius: _borderRadius,
           highlightColor: color,
           splashColor: color,
-          // We can use either the () => function() or the () { function(); }
-          // syntax.
           onTap: () {
             print('I was tapped!');
           },
@@ -40,10 +38,6 @@ class Category extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              // There are two ways to denote a list: `[]` and `List()`.
-              // Prefer to use the literal syntax, i.e. `[]`, instead of `List()`.
-              // You can add the type argument if you'd like, i.e. <Widget>[].
-              // See https://www.dartlang.org/guides/language/effective-dart/usage#do-use-collection-literals-when-possible
               children: [
                 Padding(
                   padding: EdgeInsets.all(16.0),
