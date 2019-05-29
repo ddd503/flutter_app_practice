@@ -37,7 +37,7 @@ class CategoryRoute extends StatelessWidget {
     );
   }
 
-  /// Returns a list of mock [Unit]s.
+  //（Strign -> [Unit]的なやつ）
   List<Unit> _retrieveUnitList(String categoryName) {
     return List.generate(10, (int i) {
       i += 1;
@@ -50,23 +50,28 @@ class CategoryRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 空の配列を用意(Categoryの配列)
     final categories = <Category>[];
 
+    // 配列にCategoryを詰める
     for (var i = 0; i < _categoryNames.length; i++) {
       categories.add(Category(
         name: _categoryNames[i],
         color: _baseColors[i],
         iconLocation: Icons.cake,
+        // injectに必要なUnitクラスの配列を文字列(_categoryNames)の要素を元に作る（Strign -> [Unit]的なやつ）
         units: _retrieveUnitList(_categoryNames[i]),
       ));
     }
 
+    // ListViewの定義、必要な情報はchildにセットする
     final listView = Container(
       color: _backgroundColor,
       padding: EdgeInsets.symmetric(horizontal: 8.0),
       child: _buildCategoryWidgets(categories),
     );
 
+    // Headerを作る（この場合、appbarはheaderになる）
     final appBar = AppBar(
       elevation: 0.0,
       title: Text(
